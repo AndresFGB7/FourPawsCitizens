@@ -41,7 +41,6 @@ public class ManagerDAO {
                 try {
                     for (int i = 1; i <6;i++){
                         if (fields[i].isEmpty()){
-                            System.out.println("empty");
                             throw new Exception("EmptyAttributeException");
                         }
                     }
@@ -78,7 +77,7 @@ public class ManagerDAO {
             if (obj_pet.isPotentDangerous()) {
                 bool = "T";
             }
-            var size = obj_pet.getSpecies().charAt(0) + "";
+            String size = obj_pet.getSize().charAt(0)+"";
 
             if (obj_pet.getSize().equals("MINIATURA")) {
                 size = obj_pet.getSize().substring(0, 2);

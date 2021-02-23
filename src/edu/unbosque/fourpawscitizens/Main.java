@@ -54,7 +54,7 @@ public class Main {
                 realizar(n);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Ingresa un numero valido!");
         }
     }
 
@@ -99,7 +99,7 @@ public class Main {
                 break;
             case 5:
                 //ID DEL ANIMAL EN BASE A LOS PARAMETROS DE BUSQUEDA
-                System.out.println("Ingresa el sexo,Ingresa La especie,Ingresa el tamaño,Ingresa el peligro potente");
+                System.out.println("Ingresa La especie,Ingresa el sexo,Ingresa el tamaño,Ingresa el peligro potente");
                 String info2 = scanner.nextLine().replace("”","").replace("\"","");
                 info2 = info2.replace("“","");
                 String[] parts2 = info2.split(",");
