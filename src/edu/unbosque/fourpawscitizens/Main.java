@@ -91,16 +91,16 @@ public class Main {
             case 4:
                 //ANIMALES POTENCIALMENTE PELIGROSOS
                 System.out.println("Ingresa el numero, Ingresa(TOP|LAST),Ingresa Localidad");
-                String info = scanner.nextLine().replace("”", "");
+                String info = scanner.nextLine().replace("”", "").replace("\"","");
                 info = info.replace("“","");
                 String parts[] = info.split(", ");
-                System.out.println(daomanager.findBypotentDangerousInNeighborhood(Integer.parseInt(parts[0]), parts[1], parts[2]).toString());
+                System.out.println(daomanager.findBypotentDangerousInNeighborhood(Integer.parseInt(parts[0]), parts[1], parts[2]).toString().replace("[","").replace("]","").replace(", ",""));
                 preguntar();
                 break;
             case 5:
                 //ID DEL ANIMAL EN BASE A LOS PARAMETROS DE BUSQUEDA
                 System.out.println("Ingresa el sexo,Ingresa La especie,Ingresa el tamaño,Ingresa el peligro potente");
-                String info2 = scanner.nextLine().replace("”","");
+                String info2 = scanner.nextLine().replace("”","").replace("\"","");
                 info2 = info2.replace("“","");
                 String[] parts2 = info2.split(",");
                 System.out.println(parts2[0]+" "+ parts2[1]+" "+ parts2[2]+" "+ parts2[3]);
