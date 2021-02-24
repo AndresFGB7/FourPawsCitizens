@@ -34,13 +34,13 @@ public class ManagerDAO {
                 long microchip = 0;
                 try {
                     microchip = Long.parseLong(fields[0]);
-                }catch (NumberFormatException e){
+                } catch (NumberFormatException e) {
                     line = br.readLine();
                     continue;
                 }
                 try {
-                    for (int i = 1; i <6;i++){
-                        if (fields[i].isEmpty()){
+                    for (int i = 1; i < 6; i++) {
+                        if (fields[i].isEmpty()) {
                             throw new Exception("EmptyAttributeException");
                         }
                     }
@@ -77,27 +77,26 @@ public class ManagerDAO {
             if (obj_pet.isPotentDangerous()) {
                 bool = "T";
             }
-            String size = obj_pet.getSize().charAt(0)+"";
+            String size = obj_pet.getSize().charAt(0) + "";
 
             if (obj_pet.getSize().equals("MINIATURA")) {
                 size = obj_pet.getSize().substring(0, 2);
             }
             String id20 = microchip2 + "-" + obj_pet.getSpecies().charAt(0) + "" + obj_pet.getSex().charAt(0) + "" + size + "" + bool + "-" + obj_pet.getNeighborhood();
-            if (i != 0) {
-                for (int j = 0; j < i; j++) {
-                    try {
-                        if (arr_pet.get(j).getId().equals(id20)) {
-                            number = number+1;
-                            throw new Exception("IdentifierExistsException");
-                        }
-                    }catch (Exception IdentifierExistsException){
-                        microchip2 = (obj_pet.getMicrochip() + "").substring((obj_pet.getMicrochip() + "").length() - number);
-                        id20 = microchip2 + "-" + obj_pet.getSpecies().charAt(0) + "" + obj_pet.getSex().charAt(0) + "" + size + "" + bool + "-" + obj_pet.getNeighborhood();
+            for (int j = 0; j < i; j++) {
+                try {
+                    if (arr_pet.get(j).getId().equals(id20)) {
+                        number = number + 1;
+                        throw new Exception("IdentifierExistsException");
                     }
+                } catch (Exception IdentifierExistsException) {
+                    microchip2 = (obj_pet.getMicrochip() + "").substring((obj_pet.getMicrochip() + "").length() - number);
+                    id20 = microchip2 + "-" + obj_pet.getSpecies().charAt(0) + "" + obj_pet.getSex().charAt(0) + "" + size + "" + bool + "-" + obj_pet.getNeighborhood();
                 }
             }
+
             number = 3;
-            obj_pet.setId(id20);
+            arr_pet.get(i).setId(id20);
         }
         return "El proceso de asignación de ids ha finalizado";
     }
