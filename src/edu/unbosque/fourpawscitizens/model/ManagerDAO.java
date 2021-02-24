@@ -152,8 +152,8 @@ public class ManagerDAO {
                 }
             }
         } else if (position.equals("LAST")) {
-            for (int i = arr_pet.size() - 1; i > n; i--) {
-                if (arr_pet.get(i).getNeighborhood().equals(neighborhood)) {
+            for (int i = arr_pet.size() - 1; i > 0; i--) {
+                if (arr_pet.get(i).getNeighborhood().equals(neighborhood) && arr_pet.get(i).isPotentDangerous()) {
                     animales.add(arr_pet.get(i));
                     contador++;
                     if (contador == n) {
